@@ -17,7 +17,7 @@ const tutorialData = [
   { id: "davinci-edit-workflow", title: "DaVinci Resolve edit workflow", category: "davinci", level: "Medium", duration: "15 min", description: "Базовая сборка эдита в Resolve: синхра, обрезка, speed ramps и экспорт.", link: "https://youtu.be/IeySXac3vRo?si=eM7VbEpj5wHUUFLY" },
   { id: "davinci-color-basics", title: "DaVinci color basics", category: "cc", level: "Medium", duration: "10 min", description: "Node-база, exposure, contrast, saturation и чистый старт в color page.", link: "https://youtu.be/IeySXac3vRo?si=eM7VbEpj5wHUUFLY" },
   { id: "deep-glow-2", title: "Deep Glow 2", category: "plugins", level: "Medium", duration: "2 min", description: "Мягкий glow для логотипов, текстов и эдитов с чистым контролем свечения.", link: "https://youtu.be/xvxLKp2Snh8?si=sdMiOA7EP46q3Pgc" },
-  { id: "studio-shadow-3", title: "Studio Shadow 3", category: "plugins", level: "Medium", duration: "7 min", description: "Моделирование объёмной тени для текста, UI и clean motion scenes в AE.", link: "https://youtu.be/8N3GIQrJKYc?si=h4Ae0SKktJhE4O4S" },
+  { id: "studio-shadow-2", title: "Studio Shadow 3", category: "plugins", level: "Medium", duration: "7 min", description: "Моделирование объёмной тени для текста, UI и clean motion scenes в AE.", link: "https://youtu.be/8N3GIQrJKYc?si=h4Ae0SKktJhE4O4S" },
   { id: "cc-basics-ae", title: "Color correction basics in After Effects", category: "cc", level: "Easy", duration: "9 min", description: "Базовый color correction для эдитов: curves, exposure, tint и контраст без грязи.", link: "https://youtu.be/d9ESpD7vc2Y?si=BGaBPRs94r9AD4Bw" }
 ];
 
