@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion Tutorials Hub</title>
+  <meta
+    name="description"
+    content="Функциональный сайт с туториалами по After Effects, Alight Motion и DaVinci Resolve, подборками пресетов, сценпаков и плагинов."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="ambient ambient-left"></div>
+    <div class="ambient ambient-right"></div>
+    <div class="grid-overlay"></div>
+
+    <header class="topbar" data-reveal>
+      <a class="brand" href="#hero">
+        <span class="brand-mark">AE</span>
+        <span class="brand-text">
+          <strong data-i18n="brand_title">Motion Tutorials Hub</strong>
+          <small data-i18n="brand_subtitle">after effects, alight motion, davinci resolve</small>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <a href="#tutorials" data-i18n="nav_tutorials">Туториалы</a>
+        <a href="#learning" data-i18n="nav_learning">Обучение</a>
+        <a href="#resources" data-i18n="nav_resources">Ресурсы</a>
+        <a href="#community" data-i18n="nav_contact">Связь</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <div class="lang-switcher">
+          <button class="lang-button is-active" type="button" data-lang="ru">RU</button>
+          <button class="lang-button" type="button" data-lang="en">EN</button>
+        </div>
+        <button class="nav-button" id="open-auth-modal" type="button" data-i18n="open_account">Аккаунт</button>
+        <a class="nav-button" href="https://t.me/nrxzwq" target="_blank" rel="noreferrer" data-i18n="owner_button">Владелец</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-copy reveal-item" data-reveal>
+          <div class="eyebrow" data-i18n="hero_eyebrow">Based on Edits Community + your AE stack</div>
+          <h1 data-i18n="hero_title">Туториалы по After Effects, Alight Motion и DaVinci Resolve</h1>
+          <p data-i18n-html="hero_text">
+            Сайт собран под тематику канала <a class="inline-link" href="https://t.me/EditsCommunityy" target="_blank" rel="noreferrer">Edits Community</a>:
+            туториалы по монтажу в After Effects, Alight Motion и DaVinci Resolve,
+            подборки preset-паков, сценпаков, исходников, cc и плагинов. Это уже полноценный
+            хаб с каталогом уроков, ресурсами, профилем и быстрыми переходами на материалы.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#tutorials" data-i18n="hero_browse">Смотреть туториалы</a>
+            <button class="button button-secondary" type="button" id="hero-open-auth" data-i18n="hero_profile">Открыть профиль</button>
+            <button class="button button-ghost" type="button" data-open-modal="files-modal" data-i18n="files_window">Окно файлов</button>
+            <button class="button button-ghost" type="button" data-open-modal="typography-modal" data-i18n="typography_window">Типографика</button>
+            <button class="button button-ghost" type="button" data-open-modal="edit-modal" data-i18n="edit_window">Как сделать эдит</button>
+          </div>
+
+          <div class="hero-stats">
+            <article class="floating-card">
+              <strong id="tutorial-count">0</strong>
+              <span data-i18n="stat_lessons">уроков в каталоге</span>
+            </article>
+            <article class="floating-card delay-1">
+              <strong id="resource-count">0</strong>
+              <span data-i18n="stat_resources">ресурсов и паков</span>
+            </article>
+            <article class="floating-card delay-2">
+              <strong id="favorite-count">0</strong>
+              <span data-i18n="stat_favorites">избранных уроков</span>
+            </article>
+          </div>
+        </div>
+
+        <section class="hero-panel reveal-item" id="account" data-reveal>
+          <div class="panel-glow"></div>
+          <div class="panel-top">
+            <div>
+              <span class="panel-label" data-i18n="panel_label">Personal access</span>
+              <h2 data-i18n="panel_title">Профиль редактора</h2>
+            </div>
+            <div class="status-pill">
+              <span class="status-dot"></span>
+              <span data-i18n="panel_status">profile saved</span>
+            </div>
+          </div>
+
+          <div class="profile-card is-hidden" id="profile-card">
+            <div class="profile-head">
+              <div>
+                <span class="panel-label" data-i18n="logged_in">Logged in</span>
+                <strong id="profile-name">-</strong>
+              </div>
+              <button class="button button-secondary small-button" id="logout-button" type="button" data-i18n="logout">Выйти</button>
+            </div>
+            <div class="profile-grid">
+              <div class="mini-card">
+                <span>Email</span>
+                <strong id="profile-email">-</strong>
+              </div>
+              <div class="mini-card">
+                <span data-i18n="favorite_lessons">Favorite lessons</span>
+                <strong id="profile-favorites">0</strong>
+              </div>
+              <div class="mini-card">
+                <span data-i18n="watched_lessons">Watched lessons</span>
+                <strong id="profile-watched">0</strong>
+              </div>
+              <div class="mini-card">
+                <span data-i18n="last_login">Last login</span>
+                <strong id="profile-last-login">-</strong>
+              </div>
+            </div>
+          </div>
+          <div class="empty-profile" id="empty-profile">
+            <p data-i18n="empty_profile">Открой окно авторизации, чтобы войти или зарегистрироваться. Данные теперь сохраняются в базе на сервере.</p>
+            <button class="button button-primary" type="button" id="panel-open-auth" data-i18n="open_auth_modal">Открыть авторизацию</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="learning-panels" id="learning">
+        <article class="learning-card reveal-item" data-reveal>
+          <span class="eyebrow" data-i18n="files_badge">Tutorial files</span>
+          <h3 data-i18n="files_title">Окно с файлами и исходниками</h3>
+          <p data-i18n="files_text">Отдельное учебное окно с тем, что искать: project files, presets, plugins, scenepacks и source packs.</p>
+          <button class="button button-secondary" type="button" data-open-modal="files-modal" data-i18n="open_files_window">Открыть окно файлов</button>
+        </article>
+        <article class="learning-card reveal-item" data-reveal>
+          <span class="eyebrow" data-i18n="typography_badge">Typography</span>
+          <h3 data-i18n="typography_title">Окно по типографике</h3>
+          <p data-i18n="typography_text">Отдельное учебное окно с базой по иерархии, контрасту, трекингу и clean text design для motion.</p>
+          <button class="button button-secondary" type="button" data-open-modal="typography-modal" data-i18n="open_typography_window">Открыть типографику</button>
+        </article>
+        <article class="learning-card reveal-item" data-reveal>
+          <span class="eyebrow" data-i18n="edit_badge">Edit tutorial</span>
+          <h3 data-i18n="edit_title">Окно по сборке эдита</h3>
+          <p data-i18n="edit_text">Отдельное учебное окно с базой по таймингу, нарезке, битмаркам и сборке edit-ролика.</p>
+          <button class="button button-secondary" type="button" data-open-modal="edit-modal" data-i18n="open_edit_window">Открыть тутор по эдиту</button>
+        </article>
+      </section>
+
+      <section class="filter-panel reveal-item" id="tutorials" data-reveal>
+        <div>
+          <div class="eyebrow">Tutorial library</div>
+          <h2 data-i18n="library_title">Каталог уроков по монтажу и эффектам</h2>
+        </div>
+
+        <div class="filter-controls">
+          <input id="search-input" type="search" placeholder="Поиск: glow, velocity, shake, scenepack...">
+          <select id="category-filter">
+            <option value="all">Все категории</option>
+            <option value="edits">Edits</option>
+            <option value="scenepacks">Scenepacks</option>
+            <option value="presets">Presets</option>
+            <option value="plugins">Plugins</option>
+            <option value="basics">Basics</option>
+            <option value="alight">Alight Motion</option>
+            <option value="davinci">DaVinci Resolve</option>
+            <option value="cc">CC / Coloring</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="tutorial-grid" id="tutorial-grid"></section>
+
+      <section class="resources reveal-item" id="resources" data-reveal>
+        <div class="section-copy">
+          <div class="eyebrow">Available packs</div>
+          <h2 data-i18n="resources_title">Наборы и инструменты</h2>
+          <p data-i18n-html="resources_text">Раздел с плагинами, паками и инструментами для монтажа, эффектов, color correction и motion design.</p>
+        </div>
+
+        <div class="resource-grid" id="resource-grid"></div>
+      </section>
+
+      <section class="cta reveal-item" id="community" data-reveal>
+        <div>
+          <div class="eyebrow">Community source</div>
+          <h2 data-i18n="contact_title">Открыть Telegram-канал с исходной тематикой</h2>
+          <p data-i18n-html="contact_text">Каталог построен вокруг уроков, плагинов и паков. Для связи по сайту и обновлениям можно написать владельцу напрямую.</p>
+          <p><a class="inline-link" href="https://t.me/nrxzwq" target="_blank" rel="noreferrer" data-i18n-html="owner_link">Связаться с владельцем: @nrxzwq</a></p>
+        </div>
+
+        <a class="button button-primary" href="https://t.me/EditsCommunityy" target="_blank" rel="noreferrer" data-i18n="go_telegram">Перейти в Telegram</a>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal is-hidden" id="auth-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="auth-modal"></div>
+    <div class="modal-dialog modal-dialog-auth">
+      <div class="modal-header">
+        <div>
+          <span class="panel-label" data-i18n="auth_window">Auth window</span>
+          <h2 data-i18n="auth_title">Авторизация</h2>
+        </div>
+        <button class="icon-button" data-close-modal="auth-modal" type="button">×</button>
+      </div>
+
+      <div class="auth-switcher" role="tablist" aria-label="Account tabs">
+        <button class="switcher-button is-active" data-mode="login" type="button" data-i18n="login">Вход</button>
+        <button class="switcher-button" data-mode="register" type="button" data-i18n="register">Регистрация</button>
+      </div>
+
+      <form class="auth-form" id="login-form">
+        <label>
+          <span data-i18n="username">Username</span>
+          <input id="login-username" type="text" placeholder="editorname">
+        </label>
+
+        <label>
+          <span data-i18n="password">Пароль</span>
+          <input id="login-password" type="password" placeholder="Введите пароль">
+        </label>
+
+        <button class="button button-primary button-full" type="submit" id="login-submit" data-i18n="login_submit">Войти в профиль</button>
+      </form>
+
+      <form class="auth-form is-hidden" id="register-form">
+        <label>
+          <span data-i18n="username_name">Имя пользователя</span>
+          <input id="register-username" type="text" placeholder="neweditor">
+        </label>
+
+        <label>
+          <span>Email</span>
+          <input id="register-email" type="email" placeholder="name@example.com">
+        </label>
+
+        <label>
+          <span data-i18n="password">Пароль</span>
+          <input id="register-password" type="password" placeholder="Минимум 4 символа">
+        </label>
+
+        <div class="password-meter">
+          <div class="password-meter-bar" id="password-meter-bar"></div>
+        </div>
+
+        <button class="button button-primary button-full" type="submit" id="register-submit" data-i18n="register_submit">Создать профиль</button>
+      </form>
+
+      <p class="form-message" id="form-message" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="modal is-hidden" id="files-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="files-modal"></div>
+    <div class="modal-dialog modal-dialog-learn">
+      <div class="modal-header">
+        <div>
+          <span class="panel-label" data-i18n="files_badge">Tutorial files</span>
+          <h2 data-i18n="files_title">Окно с файлами и исходниками</h2>
+        </div>
+        <button class="icon-button" data-close-modal="files-modal" type="button">×</button>
+      </div>
+      <div class="learn-list">
+        <div class="learn-item"><strong>Project files</strong><p data-i18n="files_item_1">Сохраняй `.aep`, `.drp`, `.xml`, project packs и version folders по отдельным папкам.</p></div>
+        <div class="learn-item"><strong>Scenepacks</strong><p data-i18n="files_item_2">Собирай сцены по папкам: anime, live action, overlays, typography assets.</p></div>
+        <div class="learn-item"><strong>Plugins & presets</strong><p data-i18n="files_item_3">Держи плагины, пресеты и cc-паки в понятной структуре, чтобы не терять рабочие сборки.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal is-hidden" id="typography-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="typography-modal"></div>
+    <div class="modal-dialog modal-dialog-learn">
+      <div class="modal-header">
+        <div>
+          <span class="panel-label" data-i18n="typography_badge">Typography</span>
+          <h2 data-i18n="typography_title">Окно по типографике</h2>
+        </div>
+        <button class="icon-button" data-close-modal="typography-modal" type="button">×</button>
+      </div>
+      <div class="learn-list">
+        <div class="learn-item"><strong>Hierarchy</strong><p data-i18n="typo_item_1">Сначала заголовок, потом акцент, затем вторичный текст. Не делай весь текст одинаково важным.</p></div>
+        <div class="learn-item"><strong>Spacing</strong><p data-i18n="typo_item_2">Следи за трекингом, интерлиньяжем и воздухом между блоками, особенно в motion scenes.</p></div>
+        <div class="learn-item"><strong>Contrast</strong><p data-i18n="typo_item_3">Для clean design используй 1 главный шрифт, 1 акцент и контраст по весу, а не хаос по стилям.</p></div>
+        <a class="button button-primary modal-link-button" href="https://youtu.be/a2TpCk79mtg?si=VUZYzkPsT3pdzJk6" target="_blank" rel="noreferrer" data-i18n="open_typography_video">Открыть видео по типографике</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal is-hidden" id="edit-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="edit-modal"></div>
+    <div class="modal-dialog modal-dialog-learn">
+      <div class="modal-header">
+        <div>
+          <span class="panel-label" data-i18n="edit_badge">Edit tutorial</span>
+          <h2 data-i18n="edit_title">Окно по сборке эдита</h2>
+        </div>
+        <button class="icon-button" data-close-modal="edit-modal" type="button">×</button>
+      </div>
+      <div class="learn-list">
+        <div class="learn-item"><strong>Rhythm</strong><p data-i18n="edit_item_1">Начинай с музыки, битов и точек акцента, а уже потом собирай сцены поверх ритма.</p></div>
+        <div class="learn-item"><strong>Cutting</strong><p data-i18n="edit_item_2">Режь по движению, по биту и по эмоции, а не только по таймеру.</p></div>
+        <div class="learn-item"><strong>Impact</strong><p data-i18n="edit_item_3">Добавляй shake, zoom, glow и velocity только там, где это усиливает момент.</p></div>
+        <a class="button button-primary modal-link-button" href="https://youtu.be/uvwlewmw274?si=EC_AteccqG0rbGQI" target="_blank" rel="noreferrer" data-i18n="open_edit_video">Открыть видео как сделать эдит</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
